@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoreo Climático | Open-Meteo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Barra Superior -->
+    <header class="topbar">
+        <a href="#" class="brand">
+            <div class="brand-icon">🌤️</div>
+            ClimaApp
+            <span class="brand-sub">OPEN-METEO API</span>
+        </a>
+        <nav>
+            <a href="#" class="nav-link">Actividad 4 - Lab. Programación Web</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección de Bienvenida -->
+        <section class="intro">
+            <div>
+                <p class="eyebrow">ESTACIÓN METEOROLÓGICA DIGITAL</p>
+                <h1>Consulta el clima global <em>en tiempo real</em>.</h1>
+                <p class="lede">Selecciona una ciudad para analizar las condiciones atmosféricas actuales y el pronóstico extendido.</p>
+            </div>
+            <div class="travel-stamp">
+                <span>API REST</span>
+                <strong>LIVE</strong>
+                <span>DATA</span>
+            </div>
+        </section>
+
+        <!-- Panel de Control y Selector -->
+        <section class="planner">
+            <div>
+                <p class="eyebrow">UBICACIÓN</p>
+                <h2>Selecciona un destino</h2>
+            </div>
+            <div class="controls">
+                <div class="field">
+                    <label for="citySelect">Ciudad disponible</label>
+                    <select id="citySelect">
+                        <option value="monterrey">Monterrey, México</option>
+                        <option value="cdmx">Ciudad de México, México</option>
+                        <option value="madrid">Madrid, España</option>
+                        <option value="tokyo">Tokio, Japón</option>
+                        <option value="london">Londres, Reino Unido</option>
+                    </select>
+                </div>
+                <button id="searchBtn">Consultar Clima</button>
+            </div>
+        </section>
+
+        <div id="statusMessage" class="status"></div>
+
+        <!-- Tarjeta del Clima Actual -->
+        <section class="current-card">
+            <div class="current-info">
+                <span id="liveLabel" class="live-label">🟢 DATOS EN VIVO</span>
+                <span id="regionText" class="region">Nuevo León, México</span>
+                <h2 id="cityName">Monterrey</h2>
+                <div class="temp-row">
+                    <div class="temperature"><span id="tempValue">--</span><sup>°C</sup></div>
+                    <div class="condition">
+                        <span id="weatherCondition">Cargando condiciones...</span>
+                        <small id="updateTime">Actualizado recientemente</small>
+                    </div>
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>HUMEDAD</span>
+                        <strong id="humidityVal">--%</strong>
+                    </div>
+                    <div class="metric">
+                        <span>VIENTO</span>
+                        <strong id="windVal">-- km/h</strong>
+                    </div>
+                    <div class="metric">
+                        <span>ELEVACIÓN</span>
+                        <strong id="elevationVal">-- m</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="landscape">
+                <div class="sun"></div>
+                <div class="hill back"></div>
+                <div class="hill"></div>
+                <div class="hill front"></div>
+                <span class="landscape-label">OPEN-METEO SERVICE</span>
+            </div>
+        </section>
+
+        <!-- Encabezado de Pronóstico -->
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">TENDENCIA</p>
+                <h2>Próximos días</h2>
+            </div>
+            <span id="coordsInfo">Lat: -- | Lon: --</span>
+        </div>
+
+        <!-- Contenedor de Días (Dinámico) -->
+        <div id="daysContainer" class="days">
+            <!-- Se llenará mediante JavaScript -->
+        </div>
+
+        <!-- Tarjeta Informativa / Recomendación -->
+        <section class="packing">
+            <div class="packing-icon">🎒</div>
+            <div>
+                <p class="eyebrow">RECOMENDACIÓN DE VIAJE</p>
+                <h2>Sugerencias según el clima actual</h2>
+                <p id="packingTip">Analizando las condiciones meteorológicas actuales para ofrecerte el mejor consejo de equipaje...</p>
+                <small>Datos provistos directamente por Open-Meteo REST API sin intermediarios.</small>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a href="#" class="brand">
+            <div class="brand-icon" style="width:28px;height:28px;line-height:28px;font-size:14px;">🌤️</div>
+            ClimaApp
+        </a>
+        <p>Desarrollado para la práctica de consumo de servicios web y APIs asíncronas con JavaScript moderno.</p>
+        <span>ESTADO: ACTIVO</span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
